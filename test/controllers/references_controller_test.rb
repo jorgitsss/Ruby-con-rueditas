@@ -17,7 +17,7 @@ class ReferencesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create reference" do
     assert_difference("Reference.count") do
-      post references_url, params: { reference: {  } }
+      post references_url, params: { reference: { description: @reference.description, name: @reference.name } }
     end
 
     assert_redirected_to reference_url(Reference.last)
@@ -34,7 +34,7 @@ class ReferencesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update reference" do
-    patch reference_url(@reference), params: { reference: {  } }
+    patch reference_url(@reference), params: { reference: { description: @reference.description, name: @reference.name } }
     assert_redirected_to reference_url(@reference)
   end
 

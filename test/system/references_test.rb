@@ -14,6 +14,8 @@ class ReferencesTest < ApplicationSystemTestCase
     visit references_url
     click_on "New reference"
 
+    fill_in "Description", with: @reference.description
+    fill_in "Name", with: @reference.name
     click_on "Create Reference"
 
     assert_text "Reference was successfully created"
@@ -24,6 +26,8 @@ class ReferencesTest < ApplicationSystemTestCase
     visit reference_url(@reference)
     click_on "Edit this reference", match: :first
 
+    fill_in "Description", with: @reference.description
+    fill_in "Name", with: @reference.name
     click_on "Update Reference"
 
     assert_text "Reference was successfully updated"
